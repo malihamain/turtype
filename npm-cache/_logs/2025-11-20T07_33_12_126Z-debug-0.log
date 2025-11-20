@@ -1,0 +1,108 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.2
+2 info using node@v20.19.5
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/maliha/Study/turtype/.npmrc
+5 silly config load:file:/Users/maliha/.npmrc
+6 silly config load:file:/Users/maliha/.npm-global/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--no-fund" "--no-audit" "--cache" "./npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/maliha/Study/turtype/npm-cache/_logs/2025-11-20T07_33_12_126Z-
+10 verbose logfile /Users/maliha/Study/turtype/npm-cache/_logs/2025-11-20T07_33_12_126Z-debug-0.log
+11 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+12 silly logfile done cleaning log files
+13 silly idealTree buildDeps
+14 silly fetch manifest postcss@^8.4.31
+15 silly packumentCache full:https://registry.npmjs.org/postcss cache-miss
+16 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+17 http fetch GET 200 https://registry.npmjs.org/postcss 3457ms (cache revalidated)
+18 silly packumentCache full:https://registry.npmjs.org/postcss set size:696248 disposed:false
+19 silly placeDep ROOT postcss@8.5.6 REPLACE for: @storybook/builder-webpack4@6.5.16 want: ^8.4.31
+20 silly reify mark retired [
+20 silly reify   '/Users/maliha/Study/turtype/node_modules/css-minimizer-webpack-plugin/node_modules/postcss'
+20 silly reify ]
+21 silly reify mark retired [ '/Users/maliha/Study/turtype/node_modules/postcss' ]
+22 silly reify mark retired [
+22 silly reify   '/Users/maliha/Study/turtype/node_modules/react-scripts/node_modules/postcss'
+22 silly reify ]
+23 silly reify mark retired [
+23 silly reify   '/Users/maliha/Study/turtype/node_modules/tailwindcss/node_modules/postcss'
+23 silly reify ]
+24 silly reify moves {
+24 silly reify   '/Users/maliha/Study/turtype/node_modules/css-minimizer-webpack-plugin/node_modules/postcss': '/Users/maliha/Study/turtype/node_modules/css-minimizer-webpack-plugin/node_modules/.postcss-X1IuaI2f',
+24 silly reify   '/Users/maliha/Study/turtype/node_modules/postcss': '/Users/maliha/Study/turtype/node_modules/.postcss-fmuZYXrb',
+24 silly reify   '/Users/maliha/Study/turtype/node_modules/react-scripts/node_modules/postcss': '/Users/maliha/Study/turtype/node_modules/react-scripts/node_modules/.postcss-yEEq6IN6',
+24 silly reify   '/Users/maliha/Study/turtype/node_modules/tailwindcss/node_modules/postcss': '/Users/maliha/Study/turtype/node_modules/tailwindcss/node_modules/.postcss-g3Q17t8V'
+24 silly reify }
+25 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-win32-x64
+26 silly reify mark deleted [
+26 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-win32-x64'
+26 silly reify ]
+27 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-win32-ia32
+28 silly reify mark deleted [
+28 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-win32-ia32'
+28 silly reify ]
+29 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-win32-arm64
+30 silly reify mark deleted [
+30 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-win32-arm64'
+30 silly reify ]
+31 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-x64-musl
+32 silly reify mark deleted [
+32 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-x64-musl'
+32 silly reify ]
+33 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-x64-glibc
+34 silly reify mark deleted [
+34 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-x64-glibc'
+34 silly reify ]
+35 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm64-musl
+36 silly reify mark deleted [
+36 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm64-musl'
+36 silly reify ]
+37 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm64-glibc
+38 silly reify mark deleted [
+38 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm64-glibc'
+38 silly reify ]
+39 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm-musl
+40 silly reify mark deleted [
+40 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm-musl'
+40 silly reify ]
+41 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm-glibc
+42 silly reify mark deleted [
+42 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-linux-arm-glibc'
+42 silly reify ]
+43 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-freebsd-x64
+44 silly reify mark deleted [
+44 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-freebsd-x64'
+44 silly reify ]
+45 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-darwin-x64
+46 silly reify mark deleted [
+46 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-darwin-x64'
+46 silly reify ]
+47 verbose reify failed optional dependency /Users/maliha/Study/turtype/node_modules/@parcel/watcher-android-arm64
+48 silly reify mark deleted [
+48 silly reify   '/Users/maliha/Study/turtype/node_modules/@parcel/watcher-android-arm64'
+48 silly reify ]
+49 silly ADD node_modules/fsevents
+50 silly ADD
+51 silly ADD
+52 silly ADD
+53 silly ADD
+54 silly ADD
+55 silly ADD
+56 silly ADD
+57 silly ADD
+58 silly ADD
+59 silly ADD
+60 silly ADD
+61 silly ADD
+62 silly REMOVE node_modules/tailwindcss/node_modules/postcss
+63 silly REMOVE node_modules/react-scripts/node_modules/postcss
+64 silly CHANGE node_modules/postcss
+65 silly REMOVE node_modules/postcss/node_modules/picocolors
+66 silly REMOVE node_modules/css-minimizer-webpack-plugin/node_modules/postcss
+67 verbose cwd /Users/maliha/Study/turtype
+68 verbose os Darwin 25.1.0
+69 verbose node v20.19.5
+70 verbose npm  v10.8.2
+71 verbose exit 0
+72 info ok

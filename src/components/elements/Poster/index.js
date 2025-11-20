@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './index.scss';
 import { PropTypes } from "prop-types";
-import WordCompletionEvent from "../../../events/WordCompletionEvent";
 
-const Poster = ({width, height, content, style}) => {
+const Poster = ({width, height, content, style, typed}) => {
 
  Poster.propTypes = {
-    content: PropTypes.string.isRequired,
+    content: PropTypes.arrayOf(PropTypes.string).isRequired,
+    typed: PropTypes.string,
     width: PropTypes.oneOf([...new Array(100)].map((_, i) => i + 1)),
     height: PropTypes.oneOf([...new Array(100)].map((_, i) => i + 1)),
     style: PropTypes.object,
@@ -19,22 +19,29 @@ style = {
  
 };
 
-    const [displayedContent, setDisplayedContent] = useState([...content])
-
-    useEffect(() => {
-        document.addEventListener(WordCompletionEvent.NAME, () => {
-            content.shift()
-            setDisplayedContent([...content])
-        })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
     const getFirstWordToDisplay = () => {
-        return displayedContent[0] || ''
+        return content[0] || ''
+    }
+
+    const getRemainingFirstWord = () => {
+        const original = getFirstWordToDisplay();
+        const currentTyped = typed || '';
+        let correctCount = 0;
+        for (let i = 0; i < Math.min(original.length, currentTyped.length); i++) {
+            if (original[i] === currentTyped[i]) {
+                correctCount++;
+            } else {
+                break;
+            }
+        }
+        return original.slice(correctCount);
     }
 
     const getRestOfArrayToDisplay = () => {
-        return [...displayedContent].filter((v, i) => i !== 0).slice(0, parseInt(process.env.REACT_APP_WORDS_DISPLAYED));
+        const requested = parseInt(process.env.REACT_APP_WORDS_DISPLAYED);
+        const maxToShow = 10; // cap trailing words on poster
+        const count = Number.isFinite(requested) ? Math.min(requested, maxToShow) : maxToShow;
+        return [...content].filter((v, i) => i !== 0).slice(0, count);
     }
 
     return (
@@ -42,7 +49,7 @@ style = {
             <div className="tape tape-top"/>
             <div className="contentContainer">
                 <div className="openSans content">
-                    <span className="firstWord">{`${getFirstWordToDisplay()} `}</span>
+                    <span className="firstWord">{`${getRemainingFirstWord()} `}</span>
                     <span>{getRestOfArrayToDisplay().join(' ')}</span>
                 </div>
             </div>
