@@ -2,6 +2,9 @@
   "name": "turtype",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "prop-types": "^15.7.2",
     "random-words": "^1.1.1",
