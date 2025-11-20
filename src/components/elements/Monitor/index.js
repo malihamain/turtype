@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
 import './index.scss';
 import {PropTypes} from "prop-types";
+import WordCompletionEvent from "../../../events/WordCompletionEvent";
 
-const Monitor = ({width, height,content, style}) => {
+const Monitor = ({width, height, content, style, expectedWord, onWordComplete, onTypingStart, onTypingChange, disabled}) => {
 
  Monitor.propTypes = {
-    content: PropTypes.string.isRequired,
+    content: PropTypes.string,
+    expectedWord: PropTypes.string,
+    onWordComplete: PropTypes.func,
+    onTypingStart: PropTypes.func,
+    onTypingChange: PropTypes.func,
+    disabled: PropTypes.bool,
     width: PropTypes.oneOf([...new Array(100)].map((_, i) => i + 1)),
     height: PropTypes.oneOf([...new Array(100)].map((_, i) => i + 1)),
     style: PropTypes.object,
@@ -21,7 +27,40 @@ style = {
    const [value, setValue] = useState("")
 
     const handleChange=(e)=> {
-        setValue(e.nativeEvent.data===" "?"":e.target.value)
+        if (disabled) {
+            return;
+        }
+        const newValue = e.target.value;
+        if (onTypingStart) {
+            onTypingStart();
+        }
+        // If last input produced a space (word delimiter), validate and clear
+        const isSpaceInserted = newValue.endsWith(" ");
+        if (isSpaceInserted) {
+            const typedWord = newValue.trim();
+            const correct = expectedWord ? typedWord === expectedWord : false;
+            if (correct) {
+                document.dispatchEvent(new WordCompletionEvent());
+                if (onWordComplete) {
+                    onWordComplete(true, typedWord);
+                }
+                setValue("");
+                if (onTypingChange) {
+                    onTypingChange("");
+                }
+            } else {
+                // keep the typed word, but strip the trailing space
+                setValue(typedWord);
+                if (onTypingChange) {
+                    onTypingChange(typedWord);
+                }
+            }
+        } else {
+            setValue(newValue);
+            if (onTypingChange) {
+                onTypingChange(newValue);
+            }
+        }
     }
 
 
@@ -32,7 +71,7 @@ style = {
                     <div className="screen">
                         <div className="contentContainer">
                             <div className="content">
-                            <textarea className="openSans" value={value} onChange={handleChange}/>
+                            <textarea className="openSans" value={value} onChange={handleChange} disabled={disabled}/>
                             </div>
                         </div>
                     </div>

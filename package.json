@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "chokidar": "^2.1.8",
-    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "random-words": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -61,6 +59,7 @@
     "@storybook/addon-links": "^6.3.8",
     "@storybook/node-logger": "^6.3.8",
     "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.3.8"
+    "@storybook/react": "^6.3.8",
+    "sass": "^1.94.2"
   }
 }
