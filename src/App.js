@@ -10,7 +10,7 @@ import Clock from "./components/elements/Clock";
 import Button from "./components/elements/Button";
 import Turtle from "./components/elements/Turtle";
 import RandomWords from 'random-words'
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 const envLen = parseInt(process.env.REACT_APP_SENTENCE_LENGTH);
 const DEFAULT_LENGTH = Number.isFinite(envLen) ? Math.min(envLen, 15) : 15;
