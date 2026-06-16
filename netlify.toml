@@ -1,4 +1,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
+[functions]
+  directory = "no-functions"
+
 

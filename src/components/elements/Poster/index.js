@@ -23,20 +23,6 @@ style = {
         return content[0] || ''
     }
 
-    const getRemainingFirstWord = () => {
-        const original = getFirstWordToDisplay();
-        const currentTyped = typed || '';
-        let correctCount = 0;
-        for (let i = 0; i < Math.min(original.length, currentTyped.length); i++) {
-            if (original[i] === currentTyped[i]) {
-                correctCount++;
-            } else {
-                break;
-            }
-        }
-        return original.slice(correctCount);
-    }
-
     const getRestOfArrayToDisplay = () => {
         const requested = parseInt(process.env.REACT_APP_WORDS_DISPLAYED);
         const maxToShow = 10; // cap trailing words on poster
@@ -49,7 +35,7 @@ style = {
             <div className="tape tape-top"/>
             <div className="contentContainer">
                 <div className="openSans content">
-                    <span className="firstWord">{`${getRemainingFirstWord()} `}</span>
+                    <span className="firstWord">{`${getFirstWordToDisplay()} `}</span>
                     <span>{getRestOfArrayToDisplay().join(' ')}</span>
                 </div>
             </div>
